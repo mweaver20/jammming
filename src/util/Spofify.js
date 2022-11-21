@@ -27,20 +27,18 @@ const Spotify = {
 
   search(term) {
     const accessToken = Spotify.getAccessToken()
-    return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
+    return fetch(`https://api.spotify.com/v1/search?q=${term}&type=track`, {
       headers: { Authorization: `Bearer ${accessToken}` },
     })
       .then((response) => {
         return response.json()
       })
       .then((jsonResponse) => {
-        if (!jsonResponse.tracks) {
-          return []
-        }
+        console.log(jsonResponse)
         return jsonResponse.tracks.items.map((track) => ({
           id: track.id,
           name: track.name,
-          artist: track.artist[0].name,
+          artists: track.artists[0].name,
           album: track.album.name,
           uri: track.uri,
         }))
@@ -61,6 +59,7 @@ const Spotify = {
       .then((response) => response.json())
       .then((jsonResponse) => {
         userID = jsonResponse.id
+        console.log('retrieved user id')
         return fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
           headers: headers,
           method: 'POST',
@@ -69,14 +68,18 @@ const Spotify = {
           .then((response) => response.json())
           .then((jsonResponse) => {
             const playlistID = jsonResponse.id
+            console.log('empty playlist created')
             return fetch(
-              `https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`,
+              `https://api.spotify.com/v1/playlists/${playlistID}/tracks `,
               {
                 headers: headers,
                 method: 'POST',
-                body: JSON.stringify({ URIs: trackURIs }),
+                body: JSON.stringify({ uris: trackURIs }),
               }
             )
+          })
+          .then(() => {
+            console.log('tracks added to playlist')
           })
       })
   },
