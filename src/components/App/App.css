@@ -9,27 +9,39 @@ html {
 }
 
 h1 {
-  padding: 0.77rem 0;
-  background-color: #010c3f;
+  padding: 1rem 0;
+  background-color: black;
   text-align: center;
+
+  letter-spacing: 1.5px;
   font-family: 'Poppins', sans-serif;
   font-size: 1.88rem;
   color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 h1 .highlight {
-  color: #6c41ec;
+  color: #1db954;
 }
 
 h2 {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  padding-top: 5px;
+  border-bottom: 1px solid #6f6f6f;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.55rem;
+  font-size: 1.7rem;
+  color: #fff;
 }
 
 .App {
   height: 100%;
   padding: 0 17% 10% 17%;
-  background-image: url('./background_photo_desktop.jpeg');
+  background-color: #121212;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -1,10 +1,13 @@
 .SearchResults {
   width: 50%;
   height: 950px;
+  margin: 0 35px 0 0;
   overflow-y: scroll;
-  padding: 0.88rem;
-  background-color: rgba(1, 12, 63, 0.7);
-  box-shadow: 0 4px 2px 2px #000000;
+  padding: 1rem 1.16rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  box-shadow: 0 4px 2px 2px #000000aa;
 }
 
 ::-webkit-scrollbar {
@@ -15,6 +18,6 @@
 @media only screen and (max-width: 1020px) {
   .SearchResults {
     width: 90%;
-    margin-bottom: 2rem;
+    margin: 0 0 2rem 0;
   }
 }

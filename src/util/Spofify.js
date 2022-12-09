@@ -1,7 +1,7 @@
 let accessToken
 
-const clientID = REDACTED FOR SECURITY
-const redirectURI = 'http://jammmingWithMorgan.surge.sh'
+const clientID = 'b047b381ce4444729ad17c7d13f70917'
+const redirectURI = 'http://localhost:3000'
 
 const Spotify = {
   getAccessToken() {
